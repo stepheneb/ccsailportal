@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @space.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @space.description %>
+</p>
+
+<p>
+  <b>Space type:</b>
+  <%=h @space.space_type %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @space.parent_id %>
+</p>
+
+<p>
+  <b>Lft:</b>
+  <%=h @space.lft %>
+</p>
+
+<p>
+  <b>Rgt:</b>
+  <%=h @space.rgt %>
+</p>
+
+
+<%= link_to 'Edit', edit_space_path(@space) %> |
+<%= link_to 'Back', spaces_path %>

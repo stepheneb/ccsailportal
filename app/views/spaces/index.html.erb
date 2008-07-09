@@ -1,0 +1,30 @@
+<h1>Listing spaces</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Space type</th>
+    <th>Parent</th>
+    <th>Lft</th>
+    <th>Rgt</th>
+  </tr>
+
+<% for space in @spaces %>
+  <tr>
+    <td><%=h space.name %></td>
+    <td><%=h space.description %></td>
+    <td><%=h space.space_type %></td>
+    <td><%=h space.parent_id %></td>
+    <td><%=h space.lft %></td>
+    <td><%=h space.rgt %></td>
+    <td><%= link_to 'Show', space %></td>
+    <td><%= link_to 'Edit', edit_space_path(space) %></td>
+    <td><%= link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New space', new_space_path %>
