@@ -1,4 +1,7 @@
 class SpacesController < ApplicationController
+
+  layout "standard"
+
   # GET /spaces
   # GET /spaces.xml
   def index

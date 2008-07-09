@@ -7,6 +7,13 @@
 </head>
 <body>
   <h1>CC Sail Portal</h1>
+  <p>Welcome:</p>
+  <ul>
+    <li><%= link_to "Home", home_path %></li>
+    <li><%= link_to "Login", login_path %></li>
+    <li><%= link_to "Logout", logout_path %></li>
+    <li><%= link_to "Register", register_path %></li>
+  </ul>
   <% if flash[:notice] -%> 
     <div id="notice"><%= flash[:notice] %></div> 
   <% end -%>
