@@ -19,6 +19,7 @@
     <td><%=h space.lft %></td>
     <td><%=h space.rgt %></td>
     <td><%= link_to 'Show', space %></td>
+    <td><%= link_to 'Show XML', formatted_space_path(space, :format =>:xml) %></td>
     <td><%= link_to 'Edit', edit_space_path(space) %></td>
     <td><%= link_to 'Destroy', space, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

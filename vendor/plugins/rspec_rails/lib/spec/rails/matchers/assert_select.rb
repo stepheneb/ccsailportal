@@ -14,6 +14,7 @@ module Spec # :nodoc:
         end
         
         def matches?(response_or_text, &block)
+          @response = response_or_text
           if ActionController::TestResponse === response_or_text and
                    response_or_text.headers.key?('Content-Type') and
                    response_or_text.headers['Content-Type'].to_sym == :xml
@@ -30,7 +31,7 @@ module Spec # :nodoc:
           @error.nil?
         end
 
-        def failure_message; @error.message; end
+        def failure_message; "#{@error.message}, got #{@response.body.inspect}"; end
         def negative_failure_message; "should not #{description}, but did"; end
 
         def description

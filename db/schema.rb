@@ -9,7 +9,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080709030154) do
+ActiveRecord::Schema.define(:version => 20080709175458) do
+
+  create_table "space_roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "space_id",   :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spaces", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "space_type"
+    t.integer  "parent_id",   :limit => 11
+    t.integer  "lft",         :limit => 11
+    t.integer  "rgt",         :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_space_roles", :force => true do |t|
+    t.integer  "user_id",       :limit => 11
+    t.integer  "space_role_id", :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

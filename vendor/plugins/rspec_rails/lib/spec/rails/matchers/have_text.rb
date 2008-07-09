@@ -15,11 +15,11 @@ module Spec
         end
       
         def failure_message
-          "expected #{expected.inspect}, got #{actual.inspect}"
+          "expected #{expected.inspect}, got #{actual}"
         end
         
         def negative_failure_message
-          "expected not to have text #{expected.inspect}"
+          "expected not to have text #{expected.inspect}, got #{actual.inspect}"
         end
         
         def to_s

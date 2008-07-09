@@ -1,0 +1,22 @@
+<h1>Listing space_roles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Space</th>
+  </tr>
+
+<% for space_role in @space_roles %>
+  <tr>
+    <td><%=h space_role.name %></td>
+    <td><%=h space_role.space_id %></td>
+    <td><%= link_to 'Show', space_role %></td>
+    <td><%= link_to 'Edit', edit_space_role_path(space_role) %></td>
+    <td><%= link_to 'Destroy', space_role, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New space_role', new_space_role_path %>

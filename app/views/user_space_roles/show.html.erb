@@ -1,0 +1,13 @@
+<p>
+  <b>User:</b>
+  <%=h @user_space_role.user_id %>
+</p>
+
+<p>
+  <b>Space role:</b>
+  <%=h @user_space_role.space_role_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_space_role_path(@user_space_role) %> |
+<%= link_to 'Back', user_space_roles_path %>

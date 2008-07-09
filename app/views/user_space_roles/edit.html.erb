@@ -1,0 +1,20 @@
+<h1>Editing user_space_role</h1>
+
+<% form_for(@user_space_role) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :space_role_id %><br />
+    <%= f.text_field :space_role_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user_space_role %> |
+<%= link_to 'Back', user_space_roles_path %>

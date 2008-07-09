@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @space_role.name %>
+</p>
+
+<p>
+  <b>Space:</b>
+  <%=h @space_role.space_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_space_role_path(@space_role) %> |
+<%= link_to 'Back', space_roles_path %>
