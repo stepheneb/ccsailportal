@@ -66,9 +66,3 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
   config.active_record.observers = :user_observer
 end
-
-ing
-  # config.active_record.observers = :cacher, :garbage_collector
-  config.active_record.observers = :user_observer
-end
-
