@@ -15,8 +15,15 @@
 
 <p>
   <b>Parent:</b>
-  <%=h @space.parent_id %>
+  <%= if not @space.parent.nil?
+         link_to @space.parent.name, @space.parent 
+      end%>
 </p>
+
+	<h4>Child Spaces</h4>
+	  <ul>	  	
+	  <%= @space.children.collect{|child| "<li>" + link_to(child.name, child) + "</li>"}%>
+	  </ul>
 
 <p>
   <b>Lft:</b>
@@ -28,6 +35,7 @@
   <%=h @space.rgt %>
 </p>
 
+<hr/>
 
 <%= link_to 'Edit', edit_space_path(@space) %> |
 <%= link_to 'Back', spaces_path %>
