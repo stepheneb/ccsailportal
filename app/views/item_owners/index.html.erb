@@ -1,0 +1,24 @@
+<h1>Listing item_owners</h1>
+
+<table>
+  <tr>
+    <th>Item reference</th>
+    <th>User</th>
+    <th>Version</th>
+  </tr>
+
+<% for item_owner in @item_owners %>
+  <tr>
+    <td><%=h item_owner.item_reference_id %></td>
+    <td><%=h item_owner.user_id %></td>
+    <td><%=h item_owner.version %></td>
+    <td><%= link_to 'Show', item_owner %></td>
+    <td><%= link_to 'Edit', edit_item_owner_path(item_owner) %></td>
+    <td><%= link_to 'Destroy', item_owner, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item_owner', new_item_owner_path %>

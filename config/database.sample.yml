@@ -17,7 +17,7 @@
 development:
   adapter: <% if RUBY_PLATFORM =~ /java/ %>jdbcmysql<% else %>mysql<% end %>
   encoding: utf8
-  database: ccsailportal_development
+  database: ccsailportal_is_development
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -28,7 +28,7 @@ development:
 test:
   adapter: <% if RUBY_PLATFORM =~ /java/ %>jdbcmysql<% else %>mysql<% end %>
   encoding: utf8
-  database: ccsailportal_test
+  database: ccsailportal_is_test
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -36,7 +36,7 @@ test:
 production:
   adapter: <% if RUBY_PLATFORM =~ /java/ %>jdbcmysql<% else %>mysql<% end %>
   encoding: utf8
-  database: ccsailportal_production
+  database: ccsailportal_is_production
   username: root
   password: 
   socket: /tmp/mysql.sock

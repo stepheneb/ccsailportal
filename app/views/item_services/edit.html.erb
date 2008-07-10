@@ -1,0 +1,16 @@
+<h1>Editing item_service</h1>
+
+<% form_for(@item_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @item_service %> |
+<%= link_to 'Back', item_services_path %>

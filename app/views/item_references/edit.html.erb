@@ -1,0 +1,24 @@
+<h1>Editing item_reference</h1>
+
+<% form_for(@item_reference) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :item_service_id %><br />
+    <%= f.text_field :item_service_id %>
+  </p>
+  <p>
+    <%= f.label :owners_version %><br />
+    <%= f.text_field :owners_version %>
+  </p>
+  <p>
+    <%= f.label :item_id %><br />
+    <%= f.text_field :item_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @item_reference %> |
+<%= link_to 'Back', item_references_path %>

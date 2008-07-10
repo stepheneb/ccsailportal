@@ -1,0 +1,13 @@
+<p>
+  <b>Space:</b>
+  <%=h @offering.space_id %>
+</p>
+
+<p>
+  <b>Item reference:</b>
+  <%=h @offering.item_reference_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_offering_path(@offering) %> |
+<%= link_to 'Back', offerings_path %>

@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :item_owners
+
+  map.resources :offerings
+
+  map.resources :item_references
+
+  map.resources :item_services
+
   map.resources :user_space_roles
 
   map.resources :space_roles

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item_service_id: 1
+  owners_version: 1
+  item_id: MyString
+
+two:
+  item_service_id: 1
+  owners_version: 1
+  item_id: MyString
