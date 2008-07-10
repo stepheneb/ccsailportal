@@ -1,1 +1,5 @@
 <h2>Home Page Content</h2>
+
+<% for role in @roles_of_user %>
+  You are a <%=h role.name %> in <%= link_to role.space.name, role.space %><br/>
+<% end %>
