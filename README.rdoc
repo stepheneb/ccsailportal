@@ -1,0 +1,118 @@
+= CCSAILPortal
+
+== Integration of portal, authoring, and deployment functionality for SAIL/OTrunk.
+
+The svn master repository is located here:
+
+* http://svn.concord.org/svn/ccsailportal/trunk
+
+The public git repository is located here:
+
+* git://github.com/stepheneb/ccsailportal.git
+
+When commits are made to the master svn repository they are
+are automatically pulled to a private git clone of the subversion 
+repository and from there pushed to the public git repository.
+
+Currently there are two branches of development:
+
+* trunk
+* itemservice
+
+The git branch named 'master' is tracking the svn branch 
+named 'trunk'.
+
+A Trac instance has been setup to provide both visualization
+of and rss feeds of changesets here: 
+
+* http://trac.cosmos.concord.org/ccsailportal
+
+In addition http://github.com, the service hosting the git 
+repository has commit visualization also:
+
+* http://github.com/stepheneb/ccsailportal/tree
+
+Checkout the trunk branch of the public svn repository with this command:
+
+* http://svn.concord.org/svn/ccsailportal/trunk
+
+Checkout the public git repository with this command:
+
+* git clone -o github git://github.com/stepheneb/ccsailportal.git
+
+The 'o github' option sets the string 'github' to represent the name
+of the remote git repository instead of the default named 'origin' normally
+used by git
+
+If you are a CC developer working on this code you can checkout
+both branches in the svn rep like this:
+
+* svn co https://svn.concord.org/svn/ccsailportal/trunk ccsailportal_trunk
+* svn co https://svn.concord.org/svn/ccsailportal/itemservice ccsailportal_itemservice
+
+You can also create a local git clone of the entire subversion repository 
+with all the branches like this:
+
+git svn clone -Ttrunk -ttags -bbranches --prefix=svn/ https://svn.concord.org/svn/ccsailportal ccsailportal
+cd ccsailportal
+git-gc
+(echo; git-svn show-ignore) >> .git/info/exclude
+
+A compressed copy of the entire subversion repository with all of the revisions 
+and all of the branches and tags is now in the '.git' directory in ccsailportal/.
+
+In addition the clone operation created both a local branch of the 
+remote svn branch 'trunk', renamed it 'master' and completed a checkout
+of the git master branch into the ccsailportal directory.
+
+Using git your work only takes place in local branches and you can create as 
+many local branches as you want. It is useful to remember however that only one
+local branch can be checked out at a time into the working area of your local 
+git repository.
+
+For example, if you would like to look at or work on the itemservice branch:
+
+first list the remote branches:
+
+* git branch -r
+
+If you have cloned the public git repository your remote branches will look
+like this:
+
+* github/itemservice
+* github/master
+
+If you have instead done a git-svn clone of the subversion repository using the
+instructions above your remote branches will look like this:
+
+* svn/itemservice
+* svn/trunk
+
+This command will both create a local branch named 'itemservice' and
+checkout all the content of that branch into your local working dir.
+
+* git checkout -b itemservice github/itemservice
+
+Once you have created a local branch you can switch to any of them using
+this form of the checkout command:
+
+* git checkout master
+
+If you have made local changes on content managed by the itemservice 
+branch git will not complete the checkout until you either commit it, 
+revert it, or git stash it.
+
+If you have made a git-svn clone of the subversion repository you can update
+all the remote branches of your '.git' repository and in addition merge any
+committed changes made in the remote branch your currently checked out local 
+branch is tracking with this command:
+
+* git svn rebase
+
+This command will only complete if you have first committed any changes in
+content git is tracking for this branch.
+
+== references
+
+* how to track multiple svn branches in git: http://www.jukie.net/~bart/blog/20080303200359
+
