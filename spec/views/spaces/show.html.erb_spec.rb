@@ -7,9 +7,7 @@ describe "/spaces/show.html.erb" do
     assigns[:space] = @space = stub_model(Space,
       :name => "value for name",
       :description => "value for description",
-      :space_type => "value for space_type",
-      :lft => "1",
-      :rgt => "1"
+      :space_type => "value for space_type"
     )
   end
 
@@ -18,8 +16,6 @@ describe "/spaces/show.html.erb" do
     response.should have_text(/value\ for\ name/)
     response.should have_text(/value\ for\ description/)
     response.should have_text(/value\ for\ space_type/)
-    response.should have_text(/1/)
-    response.should have_text(/1/)
   end
 end
 
