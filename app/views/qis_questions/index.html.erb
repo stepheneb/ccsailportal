@@ -1,0 +1,20 @@
+<h1>Listing qis_questions</h1>
+
+<table>
+  <tr>
+    <th>Prompt</th>
+  </tr>
+
+<% for qis_question in @qis_questions %>
+  <tr>
+    <td><%=h qis_question.prompt %></td>
+    <td><%= link_to 'Show', qis_question %></td>
+    <td><%= link_to 'Edit', edit_qis_question_path(qis_question) %></td>
+    <td><%= link_to 'Destroy', qis_question, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New qis_question', new_qis_question_path %>

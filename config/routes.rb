@@ -1,7 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :qis_answers
+
+  map.resources :qis_questions
+
   map.resources :item_owners
 
-  map.resources :offerings
+  map.resources :offerings, :has_many => [:qis_questions, :qis_answers] 
 
   map.resources :item_references
 

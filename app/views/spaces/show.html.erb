@@ -20,10 +20,51 @@
       end%>
 </p>
 
-	<h4>Child Spaces</h4>
-	  <ul>	  	
-	  <%= @space.children.collect{|child| "<li>" + link_to(child.name, child) + "</li>"}%>
-	  </ul>
+<h4>Child Spaces</h4>
+ <ul>	  	
+ <%= @space.children.collect{|child| "<li>" + link_to(child.name, child) + "</li>"}%>
+ </ul>
+
+<h4>Offerings</h4>
+ <ul>
+ <% @space.offerings.each{|offering|
+    item = offering.item
+    if not item.nil? %>
+      <li><%= link_to(item.name, offering) %>
+      	 <% item.actions(offering).each { |action| %>
+      	   <%= eval(action) %>
+      	 <% }
+
+      	 # the list of child_item_references should be optional, 
+      	 # for example students don't want to see
+      	 # all the work created by each workgroup, they only want to see
+      	 # their own.  
+      	 if offering.child_item_references.count > 0 %>
+      	   <ul>
+      	     <% offering.child_item_references.each { |item_ref| 
+      	       item = item_ref.item
+      	        %>      	     
+               <li><%=
+                  # FIXME if this is an external item then we can't directly
+                  # link to it, we need to go through the item_ref
+                  link_to(item.name, item) %>
+                  <%= item.current_owners.collect do |owner|
+                      owner.login + ", "
+                    end %>
+      	 		<% 
+      	 		  actions = item.actions(offering)
+      	 		  if !actions.nil? 
+        	 		  item.actions(offering).each { |action| %>
+        	   			<%= eval(action) %>
+      	 		<%    }
+      	 		end
+      	      } %>				      	     
+      	   </ul><%
+      	 end      	 
+      	 %>      	 
+      </li>
+    <% end }%>
+ </ul> 
 
 <p>
   <b>Lft:</b>

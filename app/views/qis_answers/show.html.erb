@@ -1,0 +1,20 @@
+<p>
+  <b>Question:</b>
+  <%=h @qis_answer.question_id %>
+</p>
+
+<% if !@qis_answer.question.nil? %>
+  <p>    
+    Prompt:<br/>    
+    <%= @qis_answer.question.prompt %>
+  </p>
+<% end %>
+
+<p>
+  <b>Answer:</b>
+  <%=h @qis_answer.answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_qis_answer_path(@qis_answer) %> |
+<%= link_to 'Back', qis_answers_path %>

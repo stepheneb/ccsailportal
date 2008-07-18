@@ -1,0 +1,16 @@
+<h1>Editing qis_question</h1>
+
+<% form_for(@qis_question) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :prompt %><br />
+    <%= f.text_field :prompt %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @qis_question %> |
+<%= link_to 'Back', qis_questions_path %>

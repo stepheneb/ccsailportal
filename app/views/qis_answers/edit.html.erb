@@ -1,0 +1,26 @@
+<h1>Editing qis_answer</h1>
+
+<% form_for(@qis_answer) do |f| %>
+  <%= f.error_messages %>
+
+  <% if !@qis_answer.question.nil? %>
+    <p>    
+      Prompt:<br/>    
+      <%= @qis_answer.question.prompt %>
+    </p>
+  <% end %>
+  <p>
+    <%= f.label :answer %><br />
+    <%= f.text_field :answer %>
+  </p>
+  <p>
+    <%= f.label :question_id %><br />
+    <%= f.text_field :question_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @qis_answer %> |
+<%= link_to 'Back', qis_answers_path %>

@@ -1,0 +1,35 @@
+<h1>Listing qis_answers</h1>
+
+<% if !@qis_question.nil? %>
+  <h2>Question</h2>
+  <%= @qis_question.prompt %>
+  
+  <h2>Answers</h2>
+<% end %>
+
+<table>
+  <tr>
+    <% if @qis_question.nil? %>
+    <th>Question</th>
+    <% end %>
+    <th>User(s)</th>
+    <th>Answer</th>
+  </tr>
+
+<% for qis_answer in @qis_answers %>
+  <tr>
+    <% if @qis_question.nil? %>
+    <td><%=h qis_answer.question_id %></td>
+    <% end %>
+    <td><%=h qis_answer.current_owners.collect{|user| user.login + ", " } %>
+    <td><%=h qis_answer.answer %></td>
+    <td><%= link_to 'Show', qis_answer %></td>
+    <td><%= link_to 'Edit', edit_qis_answer_path(qis_answer) %></td>
+    <td><%= link_to 'Destroy', qis_answer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New qis_answer', new_qis_answer_path %>

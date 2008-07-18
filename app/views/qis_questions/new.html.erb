@@ -1,0 +1,20 @@
+<h1>New qis_question</h1>
+
+<% target = @qis_question
+   if(!@offering.blank?)
+     target = [@offering, @qis_question]
+   end 
+
+  form_for(target) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :prompt %><br />
+    <%= f.text_field :prompt %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', qis_questions_path %>

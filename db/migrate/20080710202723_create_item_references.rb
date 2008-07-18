@@ -3,7 +3,10 @@ class CreateItemReferences < ActiveRecord::Migration
     create_table :item_references do |t|
       t.integer :item_service_id
       t.integer :owners_version
-      t.string :item_id
+      t.integer :item_id
+      t.string  :item_type
+      t.string  :external_item_id
+      t.integer :offering_id
 
       t.timestamps
     end

@@ -1,0 +1,2 @@
+module QisAnswersHelper
+end
