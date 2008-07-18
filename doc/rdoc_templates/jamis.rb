@@ -1,7 +1,7 @@
 module RDoc
 module Page
 
-FONTS = "\"Bitstream Vera Sans\", Verdana, Arial, Helvetica, sans-serif"
+FONTS = "Verdana, Arial, Helvetica, sans-serif"
 
 STYLE = <<CSS
 a {
