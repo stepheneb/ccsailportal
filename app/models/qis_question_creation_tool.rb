@@ -1,19 +1,12 @@
-require 'question_item_service_helper'
-
-class QisQuestionCreationTool
-  include QisItem
+module QisQuestionCreationTool
  
   def actions(offering)
     actions = []
       
     actions << "link_to('Create', new_offering_qis_question_url(#{offering.id}))"
   end
-  
-  def self.singleton
-    if(!@singleton.nil?)
-      return @singleton
-    end
-    
-    @singleton = self.new
+
+  def self.singleton_item
+    NonArItem.find_or_create_by_item_service_id_and_external_item_id(QuestionItemService.first, self.name)
   end
 end

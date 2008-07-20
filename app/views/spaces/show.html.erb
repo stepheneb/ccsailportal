@@ -27,43 +27,40 @@
 
 <h4>Offerings</h4>
  <ul>
- <% @space.offerings.each{|offering|
-    item = offering.item
-    if not item.nil? %>
-      <li><%= link_to(item.name, offering) %>
-      	 <% item.actions(offering).each { |action| %>
-      	   <%= eval(action) %>
-      	 <% }
+ <% @space.offerings.each do |offering|
+    item = offering.item %>
+      
+    <li>
+      <%= link_to(item.name, offering) %>
+      <% item.actions(offering).each do |action| %>
+      	 <%= eval(action) %>
+      <% end %>
 
-      	 # the list of child_item_references should be optional, 
-      	 # for example students don't want to see
-      	 # all the work created by each workgroup, they only want to see
-      	 # their own.  
-      	 if offering.child_item_references.count > 0 %>
-      	   <ul>
-      	     <% offering.child_item_references.each { |item_ref| 
-      	       item = item_ref.item
-      	        %>      	     
-               <li><%=
-                  # FIXME if this is an external item then we can't directly
-                  # link to it, we need to go through the item_ref
-                  link_to(item.name, item) %>
-                  <%= item.current_owners.collect do |owner|
-                      owner.login + ", "
-                    end %>
-      	 		<% 
-      	 		  actions = item.actions(offering)
+      <%# the list of child_item_references should be optional, 
+        # for example students don't want to see
+        # all the work created by each workgroup, they only want to see
+        # their own. %>  
+      <% if offering.child_items.length > 0 %>
+      	<ul>
+      	  <% offering.child_items.each do |item| %>      	     
+            <li>
+              <%= # FIXME if this is an external item then we can't directly
+                  # link to it, we need to go through its item_service
+                  link_to(item.name, item)%> 
+              <%= item.current_owners.collect do |owner|
+                    owner.login + ", "
+                  end %>
+              <%  actions = item.actions(offering)
       	 		  if !actions.nil? 
-        	 		  item.actions(offering).each { |action| %>
-        	   			<%= eval(action) %>
-      	 		<%    }
-      	 		end
-      	      } %>				      	     
-      	   </ul><%
-      	 end      	 
-      	 %>      	 
-      </li>
-    <% end }%>
+        	 		item.actions(offering).each do |action| 
+        	   	      %><%= eval(action) %><%
+      	 		    end
+      	 		  end %>
+      	  <% end %>				      	     
+      	</ul>
+      <% end %>      	 
+    </li>
+ <% end %>
  </ul> 
 
 <p>

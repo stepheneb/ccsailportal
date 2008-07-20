@@ -1,7 +1,8 @@
 class CreateItemOwners < ActiveRecord::Migration
   def self.up
     create_table :item_owners do |t|
-      t.integer :item_reference_id
+      t.integer :item_id
+      t.string  :item_type
       t.integer :user_id
       t.integer :version
 

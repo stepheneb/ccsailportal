@@ -50,10 +50,9 @@ class QisQuestionsController < ApplicationController
       if @qis_question.save
 
         if !params[:offering_id].nil?
-          item_ref = @qis_question.find_or_create_item_ref
-          item_ref.parent_offering = Offering.find(params[:offering_id])
-          item_ref.owners = [current_user]
-          item_ref.save
+          @qis_question.parent_offering = Offering.find(params[:offering_id])
+          @qis_question.owners = [current_user]
+          @qis_question.save
         end
 
         

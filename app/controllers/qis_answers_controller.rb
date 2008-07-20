@@ -6,8 +6,8 @@ class QisAnswersController < ApplicationController
       @offering = Offering.find(params[:offering_id])
       @qis_question = @offering.item
       @qis_answers = []
-      @offering.child_item_references.each do |item_ref| 
-        @qis_answers << item_ref.item
+      @offering.child_items.each do |item| 
+        @qis_answers << item
       end
     else
       @qis_answers = QisAnswer.find(:all)
@@ -59,10 +59,9 @@ class QisAnswersController < ApplicationController
       if @qis_answer.save
 
         if !params[:offering_id].nil?
-          item_ref = @qis_answer.find_or_create_item_ref
-          item_ref.parent_offering = Offering.find(params[:offering_id])          
-          item_ref.owners = [current_user]
-          item_ref.save
+          @qis_answer.parent_offering = Offering.find(params[:offering_id])          
+          @qis_answer.owners = [current_user]
+          @qis_answer.save
         end
         
         flash[:notice] = 'QisAnswer was successfully created.'

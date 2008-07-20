@@ -1,9 +1,6 @@
-require 'question_item_service_helper'
-
 class QisQuestion < ActiveRecord::Base
-  has_one :item_reference, :as => :item, :dependent => :destroy
-  has_one :parent_offering, :through => :item_reference, :source => :parent_offering
-  include QisItem
+  include Item
+  include QisArItem
   
   def actions(offering)
     actions = []
@@ -19,6 +16,5 @@ class QisQuestion < ActiveRecord::Base
       actions << "link_to('Edit', edit_qis_question_url(#{self.id}))"      
     end
   end
-  
 
 end

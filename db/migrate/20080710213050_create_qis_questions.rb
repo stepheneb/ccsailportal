@@ -1,6 +1,8 @@
 class CreateQisQuestions < ActiveRecord::Migration
   def self.up
     create_table :qis_questions do |t|
+      t.integer :owners_version
+      t.integer :offering_id
       t.string :prompt
 
       t.timestamps

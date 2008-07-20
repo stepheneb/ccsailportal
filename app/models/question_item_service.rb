@@ -7,16 +7,10 @@ class QuestionItemService < ItemService
     [ author_collection , learner_collection]
   end
   
-  def item(item_reference)
-    # if the item_reference has an item just return that
-    if (!item_reference.item.nil?) 
-      return item_reference.item
-    end
-
-    # we should now be looking in the external_item_id field
-    # which will hold the name of a class that has a class method
-    # for returning an instance of itself. 
-    eval(item_reference.external_item_id + ".singleton");
+  def mix_into_item(item)
+    item_module = eval(item.external_item_id)
+    item.extend item_module
   end
+
 end
 
