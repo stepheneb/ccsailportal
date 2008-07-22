@@ -1,4 +1,4 @@
-module QisQuestionCreationTool
+class QisQuestionCreationTool < NonArItem
  
   def actions(offering)
     actions = []
@@ -7,6 +7,6 @@ module QisQuestionCreationTool
   end
 
   def self.singleton_item
-    NonArItem.find_or_create_by_item_service_id_and_external_item_id(QuestionItemService.first, self.name)
+    QisQuestionCreationTool.find_or_create_by_item_service_id(QuestionItemService.first)
   end
 end

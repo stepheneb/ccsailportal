@@ -7,10 +7,5 @@ class QuestionItemService < ItemService
     [ author_collection , learner_collection]
   end
   
-  def mix_into_item(item)
-    item_module = eval(item.external_item_id)
-    item.extend item_module
-  end
-
 end
 

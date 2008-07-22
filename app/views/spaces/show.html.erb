@@ -44,9 +44,7 @@
       	<ul>
       	  <% offering.child_items.each do |item| %>      	     
             <li>
-              <%= # FIXME if this is an external item then we can't directly
-                  # link to it, we need to go through its item_service
-                  link_to(item.name, item)%> 
+              <%= item.name %> 
               <%= item.current_owners.collect do |owner|
                     owner.login + ", "
                   end %>
